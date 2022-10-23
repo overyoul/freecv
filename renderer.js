@@ -12,7 +12,7 @@ var content=document.getElementById("content")
 var total=document.getElementById("total")
 
 total.innerHTML="当前剪贴板共"+store.size+"条"
-for(i=0;i<store.size;i++){
+for(i=store.size-1;i>=0;i--){
     var tag=document.createElement('div');
     tag.innerText=(i+1).toString()+". "+store.get(i.toString())
     tag.className="item"
@@ -23,9 +23,7 @@ var lis = document.getElementsByClassName("item");
 console.log(lis.length)
 for(var i=0; i<lis.length; i++){
     lis[i].onclick = function () {
-        var text=this.innerText
-        alert(clipboard.readText())
-        // clipboard.write("123")
+        clipboard.writeText(this.innerText.substring(3))
     }
 }
 Mousetrap.bind('4', () => { })
