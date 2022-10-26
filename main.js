@@ -6,13 +6,13 @@ const Store = require('electron-store');
 const store = new Store();
 const createWindow = () => {
   // Create the browser window.
-  // Menu.setApplicationMenu(null)
+  Menu.setApplicationMenu(null)
   mainWindow = new BrowserWindow({
     width: 400,
     height: 600,
     // frame: false,
     webPreferences: {
-      // preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       contextIsolation: false
     }
